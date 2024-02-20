@@ -1,6 +1,7 @@
 const input = document.querySelector('input')
 const output = document.querySelector('output')
 const span = document.querySelector('span')
+let guesses = 0
 
 const words = [
     "programming",
@@ -27,7 +28,7 @@ const newGame = () => {
 }
 
 const win = () => {
-    alert(`You have guessed right, the word is ${randomizedWord}.`)
+    alert(`You have guessed right, the word is ${randomizedWord}. Number of guesses ${guesses}.`)
     newGame()
 }
 
@@ -42,6 +43,7 @@ const replaceFoundChars = (guess) => {
         }
     }
     output.innerHTML = maskedWord
+    span.innerHTML = guesses
 }
 
 newGame()
@@ -49,6 +51,7 @@ newGame()
 input.addEventListener('keypress',(e) => {
     if (e.key === 'Enter') {
         e.preventDefault()
+        guesses++
 
         const guess = input.value
         if (guess.toLowerCase() === randomizedWord.toLowerCase()) {
