@@ -25,6 +25,7 @@ const newGame = () => {
     maskedWord = "*".repeat(randomizedWord.length)
     console.log(randomizedWord)
     output.innerHTML = maskedWord
+    guesses = 0
 }
 
 const win = () => {
